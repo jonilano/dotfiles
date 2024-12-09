@@ -2,7 +2,7 @@
 bindkey -v
 
 # Map 'jk' to ESC in insert mode
-bindkey -M viins 'jk' vi-cmd-mode
+# bindkey -M viins 'jk' vi-cmd-mode
 
 # Set a simple prompt (user@host:cwd$)
 PROMPT='%F{cyan}%n@%m%f:%F{green}%~%f$ '

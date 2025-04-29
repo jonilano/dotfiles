@@ -4,26 +4,27 @@
 dotfiles_dir := $(HOME)/dotfiles
 home_dir := $(HOME)
 
-dotfiles := .zshrc .gitconfig
+dotfiles := .gitconfig .vimrc .zshrc .zshrc.local
 
-.PHONY: all install clean
+.PHONY: all install clean $(dotfiles) clean-$(dotfiles)
 
 # Default target
 all: install
 
-# Create symlinks in the home directory
-install:
-	@echo "Creating symlinks for dotfiles..."
-	@for file in $(dotfiles); do \
-		if [ -f $(home_dir)/$$file ] || [ -L $(home_dir)/$$file ]; then \
-			echo "Backing up existing $$file to $$file.bak"; \
-			mv $(home_dir)/$$file $(home_dir)/$$file.bak; \
-		fi; \
-		ln -sf $(dotfiles_dir)/$$file $(home_dir)/$$file; \
-		echo "Symlinked $$file"; \
-	done
+# Install all dotfiles
+install: $(dotfiles)
 
-# Remove symlinks
+# Install individual dotfile (make .zshrc, make .vimrc, etc.)
+$(dotfiles):
+	@echo "Creating symlink for $@..."
+	@if [ -f $(home_dir)/$@ ] || [ -L $(home_dir)/$@ ]; then \
+		echo "Backing up existing $@ to $@.bak"; \
+		mv $(home_dir)/$@ $(home_dir)/$@.bak; \
+	fi
+	@ln -sf $(dotfiles_dir)/$@ $(home_dir)/$@
+	@echo "Symlinked $@"
+
+# Remove all dotfiles
 clean:
 	@echo "Removing symlinks for dotfiles..."
 	@for file in $(dotfiles); do \
@@ -32,4 +33,14 @@ clean:
 			echo "Removed symlink for $$file"; \
 		fi; \
 	done
+
+# Remove individual dotfile (make clean-.zshrc, make clean-.vimrc, etc.)
+clean-%:
+	@file=$*; \
+	if [ -L $(home_dir)/$$file ]; then \
+		rm $(home_dir)/$$file; \
+		echo "Removed symlink for $$file"; \
+	else \
+		echo "No symlink found for $$file"; \
+	fi
 

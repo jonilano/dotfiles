@@ -20,12 +20,6 @@ SAVEHIST=2000
 alias l="ls -a"
 alias ll="ls -la"
 
-# Terminal detection for Kitty
-if [[ $TERM == "xterm-kitty" ]]; then
-    export TERM="xterm-kitty"
-#    alias ssh="kitten ssh"
-fi
-
 # Source additional user-specific configuration if it exists
 # This allows for system-specific customizations without modifying the main configuration
 if [ -f ~/.zshrc.local ]; then

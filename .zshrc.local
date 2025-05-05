@@ -1,6 +1,12 @@
 export APP_ENV=development
 export BAT_THEME="TwoDark"
 
+# Terminal detection for Kitty
+if [[ $TERM == "xterm-kitty" ]]; then
+    export TERM="xterm-kitty"
+#    alias ssh="kitten ssh"
+fi
+
 # fzf
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)

@@ -4,12 +4,9 @@ bindkey -v
 # Map 'jk' to ESC in insert mode
 bindkey -M viins 'jk' vi-cmd-mode
 
-# Set a simple prompt (user@host:cwd$)
-PROMPT='%F{cyan}%n@%m%f:%F{green}%~%f$ '
-
 # Enable colors for `ls` and other commands
 export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
+export LSCOLORS=GxFxCxDxBxExcxabagaced
 
 # History settings
 HISTFILE=~/.zsh_history
@@ -25,3 +22,4 @@ alias ll="ls -la"
 if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
 fi
+

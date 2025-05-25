@@ -8,10 +8,11 @@ export EDITOR=nvim
 
 setopt PROMPT_SUBST
 
-USERHOST_COLOR=""
+USERHOST_COLOR="%F{blue}"
 DIR_COLOR="%F{cyan}"
 GITBRANCH_COLOR="%F{magenta}"
-GITSTATUS_COLOR="%F{red}"
+# GITSTATUS_COLOR="%F{red}"
+GITSTATUS_COLOR="%F{yellow}"
 PROMPT_SYMBOL_COLOR=""
 
 COLOR_RESET="%f"
@@ -61,7 +62,9 @@ PROMPT='${USERHOST_COLOR}%n@%m${COLOR_RESET} '${DIR_COLOR}'%1~'${COLOR_RESET}'$(
 
 # Enable colors for `ls` and other commands
 export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxExcxabagaced
+# directory,symlink,socket,pipe,exec,block,char,exec_suid,exec_sgid,dir_sticky,dir_w/o_sticky,datalessfile
+# export LSCOLORS=GxFxCxDxBxExcxabagaced
+export LSCOLORS=GxFxCxDxExBxcxabagaced
 
 # History settings
 HISTFILE=~/.zsh_history

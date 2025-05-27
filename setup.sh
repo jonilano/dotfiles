@@ -6,7 +6,7 @@ home_dir="$HOME"
 config_dir="$HOME/.config"
 
 dotfiles=(.gitconfig .vimrc .zshrc .zshrc.local)
-config_dirs=(ghostty nvim btop aerospace)
+config_dirs=(ghostty nvim btop karabiner)
 
 is_managed_file() {
   local file="$1"

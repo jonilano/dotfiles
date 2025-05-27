@@ -50,22 +50,14 @@ const rules: KarabinerRules[] = [
         },
       ],
     },
-    l: {
-      description: "Homerow",
-      to: [
-        {
-          key_code: "j",
-          modifiers: ["left_command", "left_shift"],
-        },
-      ],
-    },
+
     // b = "B"rowse
     b: {
       y: open("https://www.youtube.com/"),
       r: open("https://reddit.com"),
     },
 
-    // open
+    // Open App
     o: {
       t: app("Ghostty"),
       b: app("Safari"),

@@ -36,6 +36,9 @@ const rules: KarabinerRules[] = [
             key_code: "escape",
           },
         ],
+        parameters: {
+          "basic.to_if_alone_timeout_milliseconds": 300,
+        },
         type: "basic",
       },
     ],
@@ -49,6 +52,18 @@ const rules: KarabinerRules[] = [
           modifiers: ["left_shift", "left_command"],
         },
       ],
+    },
+    // A11y
+    j: {
+      a: {
+        description: "Homerow Scroll",
+        to: [
+          {
+            key_code: "h",
+            modifiers: ["left_shift", "left_command"],
+          },
+        ],
+      },
     },
 
     // b = "B"rowse
@@ -155,6 +170,15 @@ const rules: KarabinerRules[] = [
           },
         ],
       },
+      4: {
+        description: "Arrange Quarter",
+        to: [
+          {
+            key_code: "4",
+            modifiers: ["left_control", "left_shift", "left_option"],
+          },
+        ],
+      },
 
       // window navigation
       // next window (same app)
@@ -185,26 +209,26 @@ const rules: KarabinerRules[] = [
           },
         ],
       },
-      // // cmd + [
-      // b: {
-      //   description: "Window: Back",
-      //   to: [
-      //     {
-      //       key_code: "open_bracket",
-      //       modifiers: ["right_command"],
-      //     },
-      //   ],
-      // },
-      // // cmd + ]
-      // m: {
-      //   description: "Window: Forward",
-      //   to: [
-      //     {
-      //       key_code: "close_bracket",
-      //       modifiers: ["right_command"],
-      //     },
-      //   ],
-      // },
+      // cmd + [
+      b: {
+        description: "Window: Back",
+        to: [
+          {
+            key_code: "open_bracket",
+            modifiers: ["right_command"],
+          },
+        ],
+      },
+      // cmd + ]
+      m: {
+        description: "Window: Forward",
+        to: [
+          {
+            key_code: "close_bracket",
+            modifiers: ["right_command"],
+          },
+        ],
+      },
     },
 
     // Windown Tile
@@ -242,6 +266,42 @@ const rules: KarabinerRules[] = [
           {
             key_code: "down_arrow",
             modifiers: ["left_control", "fn"],
+          },
+        ],
+      },
+      u: {
+        description: "Top Left Quarter",
+        to: [
+          {
+            key_code: "1",
+            modifiers: ["left_control", "left_option"],
+          },
+        ],
+      },
+      o: {
+        description: "Top Right Quarter",
+        to: [
+          {
+            key_code: "2",
+            modifiers: ["left_control", "left_option"],
+          },
+        ],
+      },
+      m: {
+        description: "Bottom Left Quarter",
+        to: [
+          {
+            key_code: "3",
+            modifiers: ["left_control", "left_option"],
+          },
+        ],
+      },
+      period: {
+        description: "Bottom Right Quarter",
+        to: [
+          {
+            key_code: "4",
+            modifiers: ["left_control", "left_option"],
           },
         ],
       },
@@ -293,20 +353,20 @@ const rules: KarabinerRules[] = [
           },
         ],
       },
-      semicolon: {
+      period: {
         to: [
           {
             key_code: "fastforward",
           },
         ],
       },
-      // unassigned: {
-      //   to: [
-      //     {
-      //       key_code: "rewind",
-      //     },
-      //   ],
-      // },
+      comma: {
+        to: [
+          {
+            key_code: "rewind",
+          },
+        ],
+      },
 
       // Do not disturb toggle
       d: open(
@@ -317,7 +377,7 @@ const rules: KarabinerRules[] = [
       c: open("raycast://extensions/raycast/system/open-camera"),
     },
 
-    // direction
+    // desktop
     // so that hjkl work like they do in vim
     d: {
       h: {

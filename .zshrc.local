@@ -58,3 +58,5 @@ export NVM_DIR="$HOME/.nvm"
 if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
 . "$HOME/.deno/env"
 
+# starship
+eval "$(starship init zsh)"

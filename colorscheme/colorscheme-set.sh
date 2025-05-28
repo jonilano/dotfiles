@@ -65,6 +65,10 @@ if [ "$UPDATED" = true ]; then
   ghostty_generate_config
   ghostty_reload_config
 
+  # Generate the tmux config file
+  tmux_generate_config
+  tmux_reload_config
+
   # Set the wallpaper
   if [ -z "$wallpaper" ]; then
     wallpaper="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Images/wallpapers/default.jpg"

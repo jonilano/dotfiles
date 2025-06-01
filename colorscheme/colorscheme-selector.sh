@@ -3,7 +3,7 @@
 # Filename: ~/dotfiles/colorscheme/colorscheme-selector.sh
 
 # Path to the directory containing color scheme scripts
-COLORSCHEME_DIR=~/dotfiles/colorscheme/list
+COLORSCHEME_DIR=~/dotfiles/colorscheme/themes
 
 # Path to the colorscheme-set.sh script
 COLORSCHEME_SET_SCRIPT=~/dotfiles/colorscheme/colorscheme-set.sh
@@ -15,7 +15,7 @@ if ! command -v fzf &>/dev/null; then
 fi
 
 # List available color scheme scripts
-schemes=($(ls "$COLORSCHEME_DIR"/*.sh | xargs -n 1 basename))
+schemes=($(ls "$COLORSCHEME_DIR"/*.toml | xargs -n 1 basename))
 
 # Check if any schemes are available
 if [ ${#schemes[@]} -eq 0 ]; then
@@ -23,13 +23,25 @@ if [ ${#schemes[@]} -eq 0 ]; then
   exit 1
 fi
 
-# Use fzf to select a scheme
-selected_scheme=$(printf "%s\n" "${schemes[@]}" | fzf --height=40% --reverse --header="Select a Color Scheme" --prompt="Theme > ")
+if [ $# -gt 0 ]; then
+  # If an argument is passed, use it directly as the selected scheme
+  selected_scheme="$1"
 
-# Check if a selection was made
-if [ -z "$selected_scheme" ]; then
-  echo "No color scheme selected."
-  exit 0
+  # Validate if the argument is in the list of available schemes
+  if [[ ! " ${schemes[*]} " =~ " ${selected_scheme} " ]]; then
+    echo "Error: '$selected_scheme' is not a valid color scheme."
+    echo "Available schemes are: ${schemes[*]}"
+    exit 1
+  fi
+else
+  # Use fzf to select a scheme interactively
+  selected_scheme=$(printf "%s\n" "${schemes[@]}" | fzf --height=40% --reverse --header="Select a Color Scheme" --prompt="Theme > ")
+
+  # Check if a selection was made
+  if [ -z "$selected_scheme" ]; then
+    echo "No color scheme selected."
+    exit 0
+  fi
 fi
 
 # Apply the selected color scheme

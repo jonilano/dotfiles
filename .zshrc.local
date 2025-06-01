@@ -59,4 +59,9 @@ if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.z
 . "$HOME/.deno/env"
 
 # starship
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 eval "$(starship init zsh)"
+
+# Created by `pipx` on 2025-05-31 16:49:49
+export PATH="$PATH:/Users/jonilano/.local/bin"
+

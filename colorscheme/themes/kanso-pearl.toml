@@ -1,0 +1,29 @@
+# kanso-pearl.toml
+
+[ansi]
+ansi_00 = "#24262D"
+ansi_01 = "#c84053"
+ansi_02 = "#6f894e"
+ansi_03 = "#77713f"
+ansi_04 = "#4d699b"
+ansi_05 = "#b35b79"
+ansi_06 = "#597b75"
+ansi_07 = "#545464"
+ansi_08 = "#6d6f6e"
+ansi_09 = "#d7474b"
+ansi_10 = "#6e915f"
+ansi_11 = "#836f4a"
+ansi_12 = "#6693bf"
+ansi_13 = "#624c83"
+ansi_14 = "#5e857a"
+ansi_15 = "#43436c"
+
+[ui]
+background = "#f2f1ef"
+foreground = "#24262D"
+cursor_color = "#24262D"
+selection_background = "#e2e1df"
+selection_foreground = "#24262D"
+
+[nvim]
+colorscheme = "kanso-pearl"

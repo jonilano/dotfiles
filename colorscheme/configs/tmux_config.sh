@@ -1,7 +1,9 @@
 tmux_conf_file="$HOME/dotfiles/tmux/tmux-theme"
 
 tmux_reload_config() {
-  tmux source-file $tmux_conf_file
+  if tmux has-session 2>/dev/null; then
+    tmux source-file "$tmux_conf_file"
+  fi
 }
 
 
@@ -10,11 +12,11 @@ tmux_generate_config() {
 
   cat >"$tmux_conf_file" <<EOF
 ##### STATUS BAR #####
-set -g status-style bg=black,fg=white
+set -g status-style bg=default,fg=white
 
 # Status left and right (styled with inline color codes)
 set -g status-left-length 40
-set -g status-left "#[bg=green,fg=black,bold] #S #[default]"
+set -g status-left "#[bg=green,fg=black,bold] #S #[default] "
 
 set -g status-right-length 60
 set -g status-right "#[fg=green]#H #[fg=white]| #[fg=cyan]%a %b %d #[fg=yellow]%I:%M %p"
@@ -22,11 +24,13 @@ set -g status-right "#[fg=green]#H #[fg=white]| #[fg=cyan]%a %b %d #[fg=yellow]%
 ##### WINDOW TABS #####
 # Default window (inactive)
 set -g window-status-format " #I:#W "
-set -g window-status-style bg=black,fg=grey
+set -g window-status-style bg=default,fg=grey
 
 # Active window
-set -g window-status-current-format " #[fg=cyan,bold]#I:#W* "
+# set -g window-status-current-format " #[fg=cyan,bold]#I:#W* "
+set -g window-status-current-format " #I:#W "
 # set -g window-status-current-style bg=blue,fg=white
+set -g window-status-current-style bg=#334658,fg=cyan,bold
 
 # Bell in window
 set -g window-status-bell-style bg=red,fg=white
@@ -42,7 +46,7 @@ set -g pane-active-border-style fg=cyan
 # Messages displayed (e.g. after hitting a key)
 set -g message-style bg=black,fg=green
 
-# Command prompt (after pressing `:`)
+# Command prompt (after pressing )
 set -g message-command-style bg=black,fg=cyan
 
 ##### MODE (copy-mode, etc.) #####

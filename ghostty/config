@@ -1,6 +1,6 @@
 font-family = JetBrains Mono NL
 shell-integration-features = sudo
-config-file = ghostty-theme
+# config-file = ghostty-theme
 # keybind = global:ctrl+grave_accent=toggle_quick_terminal
 # quick-terminal-animation-duration = 0.08
 macos-option-as-alt = "left"
@@ -10,3 +10,5 @@ background-blur = true
 unfocused-split-opacity = 0.7
 custom-shader = shaders/bloom025.glsl
 maximize = true
+window-padding-x = 12
+theme = ghostty-theme

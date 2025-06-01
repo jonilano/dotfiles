@@ -20,8 +20,8 @@ fi
 colorscheme_profile="$1"
 
 # Define paths
-colorscheme_file="$HOME/dotfiles/colorscheme/list/$colorscheme_profile"
-active_file="$HOME/dotfiles/colorscheme/active/active-colorscheme.sh"
+colorscheme_file="$HOME/dotfiles/colorscheme/themes/$colorscheme_profile"
+active_file="$HOME/dotfiles/colorscheme/active/theme.toml"
 
 # Check if the colorscheme file exists
 if [ ! -f "$colorscheme_file" ]; then
@@ -51,15 +51,14 @@ done
 if [ "$UPDATED" = true ]; then
   echo "Updating active colorscheme to '$colorscheme_profile'."
 
-  # Replace the contents of active-colorscheme.sh
+  # Replace the contents of active colorscheme
   cp "$colorscheme_file" "$active_file"
 
-  # I want to copy the colorscheme_file to my neovim config for folks that
-  # don't use my colorscheme selector
-  cp "$colorscheme_file" "$HOME/dotfiles/nvim/lua/config/active-colorscheme.sh"
-
   # Source the active colorscheme to load variables
-  source "$active_file"
+  # source "$active_file"
+
+  # Generate the nvim config file
+  nvim_generate_config 
 
   # Generate the ghostty config file
   ghostty_generate_config
@@ -70,14 +69,15 @@ if [ "$UPDATED" = true ]; then
   tmux_reload_config
 
   # Set the wallpaper
-  if [ -z "$wallpaper" ]; then
-    wallpaper="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Images/wallpapers/default.jpg"
-  fi
-  osascript -e '
-  tell application "System Events"
-      repeat with d in desktops
-          set picture of d to "'"$wallpaper"'"
-      end repeat
-  end tell'
+  # if [ -z "$wallpaper" ]; then
+  #   wallpaper="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Images/wallpapers/default.jpg"
+  # fi
+  # osascript -e '
+  # tell application "System Events"
+  #     repeat with d in desktops
+  #         set picture of d to "'"$wallpaper"'"
+  #     end repeat
+  # end tell'
 
 fi
+echo "Colorscheme updated."

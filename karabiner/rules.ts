@@ -370,7 +370,7 @@ const rules: KarabinerRules[] = [
       },
     },
 
-    // Windown Tile
+    // Tmux Sessions
     t: {
       j: open("raycast://script-commands/open-tmux-session?arguments=dotfiles"),
       k: open(

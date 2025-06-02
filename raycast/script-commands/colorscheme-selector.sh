@@ -39,7 +39,7 @@ SELECTED_FILE=$(osascript <<EOF
 set theFolder to POSIX file "$TARGET_DIR" as alias
 
 tell application "Finder"
-    activate
+#    activate
 	set fileList to name of files of folder theFolder
 end tell
 

@@ -57,9 +57,6 @@ if [ "$UPDATED" = true ]; then
   # Source the active colorscheme to load variables
   # source "$active_file"
 
-  # Generate the nvim config file
-  nvim_generate_config 
-
   # Generate the ghostty config file
   ghostty_generate_config
   ghostty_reload_config
@@ -67,6 +64,9 @@ if [ "$UPDATED" = true ]; then
   # Generate the tmux config file
   tmux_generate_config
   tmux_reload_config
+
+  # Generate the nvim config file
+  nvim_generate_config && nvim_reload_config
 
   # Set the wallpaper
   # if [ -z "$wallpaper" ]; then

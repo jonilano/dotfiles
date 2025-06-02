@@ -25,4 +25,4 @@
 # Modified PATH to include pipx-installed packages. If you used a different installation method, adjust the variable properly to make the 'lgtv' package detectable.
 PATH="$HOME/.local/bin:$PATH"
 
-lgtv tv startApp $1
+lgtv --name tv startApp $1

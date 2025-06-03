@@ -12,3 +12,4 @@ custom-shader = shaders/bloom025.glsl
 maximize = true
 window-padding-x = 12
 theme = ghostty-theme
+cursor-style-blink = true

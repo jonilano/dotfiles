@@ -21,6 +21,10 @@ SAVEHIST=2000
 alias l="ls -a"
 alias ll="ls -la"
 
+# Load completion system
+# autoload -Uz compinit
+# compinit
+
 # Source additional user-specific configuration if it exists
 # This allows for system-specific customizations without modifying the main configuration
 if [ -f ~/.zshrc.local ]; then

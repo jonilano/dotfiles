@@ -64,19 +64,6 @@ const rules: KarabinerRules[] = [
         },
       ],
     },
-    // // A11y
-    // a: {
-    //   j: {
-    //     description: "Homerow Scroll",
-    //     to: [
-    //       {
-    //         key_code: "h",
-    //         modifiers: ["left_shift", "left_command"],
-    //       },
-    //     ],
-    //   },
-    // },
-    //
 
     // b = "B"rowse
     b: {
@@ -84,17 +71,29 @@ const rules: KarabinerRules[] = [
       r: open("https://reddit.com"),
     },
     u: {
-      description: "Caps Lock with accidental keystroke prevention disabled",
+      description: "Caps Lock",
       to: [
         {
-          hold_down_milliseconds: 100,
+          // hold_down_milliseconds: 100,
           key_code: "caps_lock",
         },
-        {
-          key_code: "vk_none",
-        },
+        // {
+        //   key_code: "vk_none",
+        // },
       ],
     },
+    // u: {
+    //   description: "Caps Lock with accidental keystroke prevention disabled",
+    //   to: [
+    //     {
+    //       hold_down_milliseconds: 100,
+    //       key_code: "caps_lock",
+    //     },
+    //     {
+    //       key_code: "vk_none",
+    //     },
+    //   ],
+    // },
 
     // Open App
     o: {
@@ -540,15 +539,8 @@ const rules: KarabinerRules[] = [
 
     // c = Musi*c* which isn't "m" because we want it to be on the left hand
     c: {
-      p: {
-        to: [{ key_code: "play_or_pause" }],
-      },
-      n: {
-        to: [{ key_code: "fastforward" }],
-      },
-      b: {
-        to: [{ key_code: "rewind" }],
-      },
+      k: open("raycast://script-commands/set-colorscheme?arguments=kanso-zen"),
+      l: open("raycast://script-commands/set-colorscheme?arguments=linkarzu"),
     },
 
     // r = "Raycast"

@@ -6,7 +6,7 @@ home_dir="$HOME"
 config_dir="$HOME/.config"
 
 dotfiles=(.gitconfig .vimrc .zshrc .zshrc.local)
-config_dirs=(ghostty starship tmux nvim btop karabiner)
+config_dirs=(ghostty karabiner nvim starship tmux)
 
 is_managed_file() {
   local file="$1"

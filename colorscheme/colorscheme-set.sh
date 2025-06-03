@@ -66,7 +66,8 @@ if [ "$UPDATED" = true ]; then
   tmux_reload_config
 
   # Generate the nvim config file
-  nvim_generate_config && nvim_reload_config
+  nvim_generate_config
+  nvim_reload_config
 
   # Set the wallpaper
   # if [ -z "$wallpaper" ]; then

@@ -64,6 +64,37 @@ const rules: KarabinerRules[] = [
         },
       ],
     },
+    n: {
+      description: "Next App",
+      to: [
+        {
+          key_code: "escape",
+        },
+        {
+          key_code: "escape",
+        },
+        {
+          key_code: "f4",
+          modifiers: ["fn", "left_control"],
+        },
+        // {
+        //   key_code: "h",
+        //   modifiers: ["left_option", "left_command"],
+        // },
+      ],
+    },
+    // a: {
+    //   // next app
+    //   n: {
+    //     description: "Next App",
+    //     to: [
+    //       {
+    //         key_code: "f4",
+    //         modifiers: ["fn", "left_control"],
+    //       },
+    //     ],
+    //   },
+    // },
 
     // b = "B"rowse
     b: {
@@ -416,6 +447,7 @@ const rules: KarabinerRules[] = [
           },
         ],
       },
+      n: open("raycast://script-commands/dismiss-notifications"),
       p: {
         to: [
           {
@@ -539,6 +571,9 @@ const rules: KarabinerRules[] = [
 
     // c = Musi*c* which isn't "m" because we want it to be on the left hand
     c: {
+      j: open(
+        "raycast://script-commands/set-colorscheme?arguments=catppuccin-mocha"
+      ),
       k: open("raycast://script-commands/set-colorscheme?arguments=kanso-zen"),
       l: open("raycast://script-commands/set-colorscheme?arguments=linkarzu"),
     },
@@ -547,7 +582,7 @@ const rules: KarabinerRules[] = [
     r: {
       c: open("raycast://script-commands/colorscheme-selector"),
       i: open("raycast://extensions/thomas/color-picker/pick-color"),
-      n: open("raycast://script-commands/dismiss-notifications"),
+      // n: open("raycast://script-commands/dismiss-notifications"),
       l: open(
         "raycast://extensions/stellate/mxstbr-commands/create-mxs-is-shortlink"
       ),

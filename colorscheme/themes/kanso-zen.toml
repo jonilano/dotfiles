@@ -24,6 +24,7 @@ foreground = "#c5c9c7"
 cursor     = "#c5c9c7"
 selection_background = "#24262D"
 selection_foreground = "#c5c9c7"
+wallpaper = "clay-banks-fuji.jpg"
 
 [nvim]
 colorscheme = "kanso-zen"

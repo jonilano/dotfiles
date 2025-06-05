@@ -25,6 +25,7 @@ foreground = "#ebfafa"
 cursor     = "#f94dff"
 selection_background = "#5fa9f4"
 selection_foreground = "#0D1116"
+wallpaper = "boliviainteligente-alt.jpg"
 
 [nvim]
 colorscheme = "eldritch"

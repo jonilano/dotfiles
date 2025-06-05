@@ -69,16 +69,22 @@ if [ "$UPDATED" = true ]; then
   nvim_generate_config
   nvim_reload_config
 
-  # Set the wallpaper
-  # if [ -z "$wallpaper" ]; then
-  #   wallpaper="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Images/wallpapers/default.jpg"
-  # fi
-  # osascript -e '
-  # tell application "System Events"
-  #     repeat with d in desktops
-  #         set picture of d to "'"$wallpaper"'"
-  #     end repeat
-  # end tell'
+# Set the wallpaper
+  echo "$colorscheme_file"
+  wallpaper_dir="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Images/wallpapers"
+  wallpaper=$(grep -E '^\s*wallpaper\s*=' "$colorscheme_file" | sed -E 's/.*"\s*([^"]+)\s*".*/\1/')
+  echo "$wallpaper"
+  if [ -z "$wallpaper" ]; then
+    wallpaper="default.jpg"
+  fi
+  wallpaper_path="$wallpaper_dir/$wallpaper"
+  echo "$wallpaper_path"
+  osascript -e '
+  tell application "System Events"
+      repeat with d in desktops
+          set picture of d to "'"$wallpaper_path"'"
+      end repeat
+  end tell'
 
 fi
-echo "Colorscheme updated."
+echo "Colorscheme is set to '$colorscheme_profile'"

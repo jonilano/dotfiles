@@ -10,6 +10,6 @@ background-blur = true
 unfocused-split-opacity = 0.7
 custom-shader = shaders/bloom025.glsl
 maximize = true
-window-padding-x = 12
+window-padding-x = 36
 theme = ghostty-theme
 cursor-style-blink = true

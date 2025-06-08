@@ -2,12 +2,26 @@ ghostty_reload_config() {
   osascript $HOME/dotfiles/ghostty/reload-config.scpt
 }
 
-ghostty_generate_config() {
-  # Path to output Ghostty theme configuration file
-  ghostty_conf_file="$HOME/dotfiles/ghostty/themes/ghostty-theme"
+ghostty_toggle_transparency() {
+  local background_conf="$HOME/dotfiles/ghostty/background-conf"
+  local background_conf_disabled="$HOME/dotfiles/ghostty/background-conf.disabled"
 
-  # Path to the source TOML theme file
-  THEME_FILE="$HOME/dotfiles/colorscheme/active/theme.toml"
+  if [ -f "$background_conf" ]; then
+    mv -f "$background_conf" "$background_conf_disabled"
+  elif [ -f "$background_conf_disabled" ]; then
+    mv -f "$background_conf_disabled" "$background_conf"
+  else
+    cat >"$background_conf" <<EOF
+background-opacity = 0.8
+background-blur = true
+
+EOF
+  fi
+}
+
+ghostty_generate_config() {
+  local input_file="${1:-$HOME/dotfiles/colorscheme/active/theme.toml}"
+  local output_file="${2:-$HOME/dotfiles/ghostty/themes/ghostty-theme}"
 
   # Use awk to process the TOML file and convert it to Ghostty-compatible format
   awk '
@@ -72,8 +86,8 @@ ghostty_generate_config() {
       gsub(/"/, "", color)
       print "selection-foreground = " color
     }
-  ' "$THEME_FILE" > "$ghostty_conf_file"  # Run AWK and redirect output to Ghostty theme file
+  ' "$input_file" > "$output_file"  # Run AWK and redirect output to Ghostty theme file
 
   # Notify the user
-  echo "Ghostty configuration updated at '$ghostty_conf_file'."
+  # echo "Ghostty configuration updated at '$output_file'."
 }

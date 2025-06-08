@@ -7,7 +7,7 @@ nvim_reload_config() {
   # Find all active Neovim server sockets in the target directory
   # and iterate over each one to send reload commands.
   find "$SOCKET_DIR" -type s -name 'nvim*' | while IFS= read -r sock; do
-    echo "Sending reload commands to Neovim server: $sock"
+    # echo "Sending reload commands to Neovim server: $sock"
 
     # Call the user-defined Lua function ReloadPalette()
     # (should be defined in your Lua config, e.g., utils/ui.lua)
@@ -21,8 +21,8 @@ nvim_reload_config() {
 
 nvim_generate_config() {
 
-  local INPUT_FILE="$HOME/dotfiles/colorscheme/active/theme.toml"
-  local OUTPUT_FILE="$HOME/dotfiles/nvim/lua/config/palette.lua"
+  local INPUT_FILE="${1:-$HOME/dotfiles/colorscheme/active/theme.toml}"
+  local OUTPUT_FILE="${2:-$HOME/dotfiles/nvim/lua/config/palette.lua}"
 
   echo "return {" > "$OUTPUT_FILE"
 

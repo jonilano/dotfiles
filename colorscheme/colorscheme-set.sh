@@ -1,90 +1,55 @@
 #!/usr/bin/env bash
-
-# Filename: ~/dotfiles/colorscheme/colorscheme-set.sh
-# ~/dotfiles/colorscheme/colorscheme-set.sh
-
-# Exit immediately if a command exits with a non-zero status
 set -e
 
-# Function to display error messages
-error() {
-  echo "Error: $1" >&2
-  exit 1
-}
-
-# Ensure a colorscheme profile is provided
+# Usage check
 if [ -z "$1" ]; then
-  error "No colorscheme profile provided"
+  echo "Usage: $0 <colorscheme-profile>" >&2
+  exit 1
 fi
 
-colorscheme_profile="$1"
+profile="$1"
 
-# Define paths
-colorscheme_file="$HOME/dotfiles/colorscheme/themes/$colorscheme_profile"
-active_file="$HOME/dotfiles/colorscheme/active/theme.toml"
+# Load environment variables
+source "$HOME/dotfiles/colorscheme/colorscheme_env.sh"
+colorscheme_env_init "$profile"
 
-# Check if the colorscheme file exists
-if [ ! -f "$colorscheme_file" ]; then
-  error "Colorscheme file '$colorscheme_file' does not exist."
+# Ensure the colorscheme file exists
+if [ ! -f "$COLORSCHEME_FILE" ]; then
+  echo "Colorscheme file '$COLORSCHEME_FILE' does not exist." >&2
+  exit 1
 fi
 
-# If active-colorscheme.sh doesn't exist, create it
-if [ ! -f "$active_file" ]; then
-  echo "Active colorscheme file not found. Creating '$active_file'."
-  cp "$colorscheme_file" "$active_file"
-  UPDATED=true
-else
-  # Compare the new colorscheme with the active one
-  if ! diff -q "$active_file" "$colorscheme_file" >/dev/null; then
-    UPDATED=true
-  else
-    UPDATED=false
-  fi
-fi
+# Compare and update
+if ! cmp -s "$COLORSCHEME_FILE" "$ACTIVE_FILE"; then
+  echo "Updating active colorscheme to '$profile'..."
+  cp "$COLORSCHEME_FILE" "$ACTIVE_FILE"
 
-# Source all config files
-for config_file in "$HOME/dotfiles/colorscheme/configs/"*.sh; do
-  [ -f "$config_file" ] && source "$config_file"
-done
+  # Source all config generators
+  for config_script in "$HOME/dotfiles/colorscheme/configs/"*.sh; do
+    [ -f "$config_script" ] && source "$config_script"
+  done
 
-# If there's an update, replace the active colorscheme and perform necessary actions
-if [ "$UPDATED" = true ]; then
-  echo "Updating active colorscheme to '$colorscheme_profile'."
-
-  # Replace the contents of active colorscheme
-  cp "$colorscheme_file" "$active_file"
-
-  # Source the active colorscheme to load variables
-  # source "$active_file"
-
-  # Generate the ghostty config file
-  ghostty_generate_config
+  ghostty_generate_config "$ACTIVE_FILE" "$GHOSTTY_CONF_FILE"
   ghostty_reload_config
-
-  # Generate the tmux config file
-  tmux_generate_config
+  tmux_generate_config "$TMUX_CONF_FILE"
   tmux_reload_config
-
-  # Generate the nvim config file
-  nvim_generate_config
+  nvim_generate_config "$ACTIVE_FILE" "$NVIM_PALETTE_FILE"
   nvim_reload_config
 
+
 # Set the wallpaper
-  echo "$colorscheme_file"
-  wallpaper_dir="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Images/wallpapers"
-  wallpaper=$(grep -E '^\s*wallpaper\s*=' "$colorscheme_file" | sed -E 's/.*"\s*([^"]+)\s*".*/\1/')
-  echo "$wallpaper"
+  wallpaper=$(grep -E '^\s*wallpaper\s*=' "$COLORSCHEME_FILE" | sed -E 's/.*"\s*([^"]+)\s*".*/\1/')
   if [ -z "$wallpaper" ]; then
     wallpaper="default.jpg"
   fi
-  wallpaper_path="$wallpaper_dir/$wallpaper"
-  echo "$wallpaper_path"
+  wallpaper_path="$WALLPAPER_DIR/$wallpaper"
   osascript -e '
   tell application "System Events"
       repeat with d in desktops
           set picture of d to "'"$wallpaper_path"'"
       end repeat
   end tell'
-
+else
+  echo "Colorscheme '$profile' is already active."
 fi
-echo "Colorscheme is set to '$colorscheme_profile'"
+

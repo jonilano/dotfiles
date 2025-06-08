@@ -21,7 +21,7 @@ ansi_15 = "#c5c9c7"
 [ui]
 background = "#090E13"
 foreground = "#c5c9c7"
-cursor     = "#c5c9c7"
+cursor_color = "#c5c9c7"
 selection_background = "#24262D"
 selection_foreground = "#c5c9c7"
 wallpaper = "clay-banks-fuji.jpg"

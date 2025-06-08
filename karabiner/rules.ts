@@ -101,30 +101,26 @@ const rules: KarabinerRules[] = [
       y: open("https://www.youtube.com/"),
       r: open("https://reddit.com"),
     },
-    u: {
-      description: "Caps Lock",
-      to: [
-        {
-          // hold_down_milliseconds: 100,
-          key_code: "caps_lock",
-        },
-        // {
-        //   key_code: "vk_none",
-        // },
-      ],
-    },
     // u: {
-    //   description: "Caps Lock with accidental keystroke prevention disabled",
+    //   description: "Caps Lock",
     //   to: [
     //     {
-    //       hold_down_milliseconds: 100,
     //       key_code: "caps_lock",
-    //     },
-    //     {
-    //       key_code: "vk_none",
     //     },
     //   ],
     // },
+    u: {
+      description: "Caps Lock with accidental keystroke prevention disabled",
+      to: [
+        {
+          hold_down_milliseconds: 100,
+          key_code: "caps_lock",
+        },
+        {
+          key_code: "vk_none",
+        },
+      ],
+    },
 
     // Open App
     o: {
@@ -406,6 +402,7 @@ const rules: KarabinerRules[] = [
       k: open(
         "raycast://script-commands/open-tmux-session?arguments=karabiner"
       ),
+      o: open("raycast://script-commands/ghostty-toggle-transparency"),
     },
 
     // s = "System"
@@ -448,6 +445,13 @@ const rules: KarabinerRules[] = [
         ],
       },
       n: open("raycast://script-commands/dismiss-notifications"),
+      spacebar: {
+        to: [
+          {
+            key_code: "play_or_pause",
+          },
+        ],
+      },
       p: {
         to: [
           {
@@ -571,11 +575,17 @@ const rules: KarabinerRules[] = [
 
     // c = Musi*c* which isn't "m" because we want it to be on the left hand
     c: {
+      h: open("raycast://script-commands/set-colorscheme?arguments=rose-pine"),
       j: open(
         "raycast://script-commands/set-colorscheme?arguments=catppuccin-mocha"
       ),
       k: open("raycast://script-commands/set-colorscheme?arguments=kanso-zen"),
+      i: open("raycast://script-commands/set-colorscheme?arguments=kanso-ink"),
+      8: open(
+        "raycast://script-commands/set-colorscheme?arguments=kanso-pearl"
+      ),
       l: open("raycast://script-commands/set-colorscheme?arguments=linkarzu"),
+      o: open("raycast://script-commands/ghostty-toggle-transparency"),
     },
 
     // r = "Raycast"
@@ -613,6 +623,15 @@ const rules: KarabinerRules[] = [
       n: open("raycast://script-commands/send-notification-to-lgtv"),
       j: open("raycast://script-commands/turn-volume-down"),
       k: open("raycast://script-commands/turn-volume-up"),
+      spacebar: open(
+        "raycast://script-commands/living-room-apple-tv-control?arguments=toggleplay"
+      ),
+      f: open(
+        "raycast://script-commands/living-room-apple-tv-control?arguments=next"
+      ),
+      r: open(
+        "raycast://script-commands/living-room-apple-tv-control?arguments=previous"
+      ),
     },
   }),
 ];

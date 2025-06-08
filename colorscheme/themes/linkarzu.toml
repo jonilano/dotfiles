@@ -22,7 +22,7 @@ ansi_15 = "#ebfafa"
 [ui]
 background = "#0D1116"
 foreground = "#ebfafa"
-cursor     = "#f94dff"
+cursor_color = "#f94dff"
 selection_background = "#5fa9f4"
 selection_foreground = "#0D1116"
 wallpaper = "boliviainteligente-alt.jpg"

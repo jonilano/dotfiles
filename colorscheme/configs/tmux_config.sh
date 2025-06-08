@@ -1,16 +1,15 @@
-tmux_conf_file="$HOME/dotfiles/tmux/tmux-theme"
 
 tmux_reload_config() {
+  local file="${1:-$HOME/dotfiles/tmux/tmux-theme}"
   if tmux has-session 2>/dev/null; then
-    tmux source-file "$tmux_conf_file"
+    tmux source-file "$file"
   fi
 }
 
-
 tmux_generate_config() {
-  # tmux_conf_file="$HOME/dotfiles/tmux/tmux-theme"
+  local file="${1:-$HOME/dotfiles/tmux/tmux-theme}"
 
-  cat >"$tmux_conf_file" <<EOF
+  cat >"$file" <<EOF
 ##### STATUS BAR #####
 set -g status-style bg=default,fg=white
 
@@ -64,5 +63,5 @@ set -g message-command-style bg=black,fg=cyan
 
 EOF
 
-  echo "tmux configuration updated at '$tmux_conf_file'."
+  # echo "tmux configuration updated at '$file'."
 }

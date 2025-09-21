@@ -27,6 +27,17 @@ Personal dotfiles and configuration management for setting up my development env
 - `starship`  
 - `tmux`  
 
+## Clone Repository
+
+```bash
+# Clone dotfiles
+git clone git@github.com:jonilano/dotfiles.git
+cd dotfiles
+
+# Initialize + fetch submodules
+git submodule update --init --recursive
+```
+
 ## Installation
 
 You can install the dotfiles/configs using either the **Makefile** or the **setup.sh** script.

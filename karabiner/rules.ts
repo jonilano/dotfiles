@@ -68,21 +68,37 @@ const rules: KarabinerRules[] = [
       description: "Next App",
       to: [
         {
-          key_code: "escape",
+          key_code: "tab",
+          modifiers: ["right_command"],
+        },
+        {
+          key_code: "tab",
+          modifiers: ["right_command"],
         },
         {
           key_code: "escape",
         },
-        {
-          key_code: "f4",
-          modifiers: ["fn", "left_control"],
-        },
-        // {
-        //   key_code: "h",
-        //   modifiers: ["left_option", "left_command"],
-        // },
       ],
     },
+    // n: {
+    //   description: "Next App",
+    //   to: [
+    //     {
+    //       key_code: "escape",
+    //     },
+    //     {
+    //       key_code: "escape",
+    //     },
+    //     {
+    //       key_code: "f4",
+    //       modifiers: ["fn", "left_control"],
+    //     },
+    // {
+    //   key_code: "h",
+    //   modifiers: ["left_option", "left_command"],
+    // },
+    // ],
+    // },
     // a: {
     //   // next app
     //   n: {
@@ -576,8 +592,14 @@ const rules: KarabinerRules[] = [
     // c = Musi*c* which isn't "m" because we want it to be on the left hand
     c: {
       h: open("raycast://script-commands/set-colorscheme?arguments=rose-pine"),
+      y: open(
+        "raycast://script-commands/set-colorscheme?arguments=rose-pine-dawn"
+      ),
       j: open(
         "raycast://script-commands/set-colorscheme?arguments=catppuccin-mocha"
+      ),
+      u: open(
+        "raycast://script-commands/set-colorscheme?arguments=catppuccin-latte"
       ),
       k: open("raycast://script-commands/set-colorscheme?arguments=kanso-zen"),
       i: open("raycast://script-commands/set-colorscheme?arguments=kanso-ink"),

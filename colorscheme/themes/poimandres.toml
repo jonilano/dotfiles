@@ -22,6 +22,8 @@ ansi_15 = "#FFFFFF"
 background = "#1B1E28"
 foreground = "#E4F0FB"
 cursor_color = #e4f0fb
+cursor_color = "#A6ACCD"
+cursor_text = "#1B1E28"
 selection_background = #506477"
 selection_foreground = #E4F0FB"
 

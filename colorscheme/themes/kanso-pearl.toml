@@ -24,7 +24,7 @@ foreground = "#24262D"
 cursor_color = "#24262D"
 selection_background = "#e2e1df"
 selection_foreground = "#24262D"
-wallpaper = "ningyu-fuji.jpg"
+wallpaper = "abhijeet-gaikwad-everest.jpg"
 
 [nvim]
 colorscheme = "kanso-pearl"

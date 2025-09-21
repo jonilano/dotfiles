@@ -1,0 +1,32 @@
+# rose-pine-dawn.toml
+
+[ansi]
+ansi_00 = "#f2e9e1"
+ansi_01 = "#b4637a"
+ansi_02 = "#286983"
+ansi_03 = "#ea9d34"
+ansi_04 = "#56949f"
+ansi_05 = "#907aa9"
+ansi_06 = "#d7827e"
+ansi_07 = "#575279"
+ansi_08 = "#9893a5"
+ansi_09 = "#b4637a"
+ansi_10 = "#286983"
+ansi_11 = "#ea9d34"
+ansi_12 = "#56949f"
+ansi_13 = "#907aa9"
+ansi_14 = "#d7827e"
+ansi_15 = "#575279"
+
+[ui]
+background = "#faf4ed"
+foreground = "#575279"
+cursor_color = "#575279"
+cursor_text = "#faf4ed"
+selection_background = "#dfdad9"
+selection_foreground = "#575279"
+wallpaper = "macos-lion-fuji.jpg"
+
+[nvim]
+colorscheme = "rose-pine-dawn"
+

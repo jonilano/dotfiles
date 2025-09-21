@@ -19,10 +19,10 @@ ansi_14 = "#94e2d5"
 ansi_15 = "#a6adc8"
 
 [ui]
-# background = "#101419"
 background = "#1e1e2e"
 foreground = "#cdd6f4"
 cursor_color = "#f5e0dc"
+cursor_text = "#1e1e2e"
 selection_background = "#353749"
 selection_foreground = "#cdd6f4"
 wallpaper = "keyboard.png"

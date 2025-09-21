@@ -67,10 +67,17 @@ ghostty_generate_config() {
     }
 
     # Process cursor color (only if in [ui] section)
-    in_ui && /^cursor/ {
+    in_ui && /^cursor_color/ {
       color = $3
       gsub(/"/, "", color)
       print "cursor-color = " color
+    }
+
+    # Process cursor text (only if in [ui] section)
+    in_ui && /^cursor_text/ {
+      color = $3
+      gsub(/"/, "", color)
+      print "cursor-text = " color
     }
 
     # Process selection background (only if in [ui] section)

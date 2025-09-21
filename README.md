@@ -21,7 +21,6 @@ Personal dotfiles and configuration management for setting up my development env
 
 ### Config directories (`$HOME/.config`)
 
-- `btop`  
 - `ghostty`  
 - `karabiner`  
 - `nvim`  

@@ -6,7 +6,7 @@ home_dir := $(HOME)
 config_dir := $(HOME)/.config
 
 dotfiles := .gitconfig .vimrc .zshrc .zshrc.local
-config_dotfiles := ghostty nvim btop karabiner
+config_dotfiles := ghostty karabiner nvim starship tmux
 
 # Combine all valid targets
 all_targets := $(dotfiles) $(config_dotfiles)

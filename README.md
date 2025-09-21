@@ -1,94 +1,119 @@
 # Dotfiles
 
-Personal dotfiles for setting up and managing my development environment.
+Personal dotfiles and configuration management for setting up my development environment.
 
 ## Features
 
-- ✅ Easily install and remove symlinks for managed dotfiles.
-- 🔒 Safe backup of existing configuration files before overwriting.
-- ⚙️ Supports installing or cleaning all dotfiles at once, or individually.
-- 🧩 Simple and extensible setup using `Makefile` or `setup.sh`.
-- 🧼 Minimal and clean `.zshrc` configuration.
+- ✅ Easily install and remove symlinks for managed **dotfiles** and **config directories**.  
+- 🔒 Safe backup of existing files/directories before overwriting (`<name>.bak`).  
+- ⚙️ Supports installing or cleaning **all** managed files, or **individual** ones.  
+- 🧩 Flexible setup via `Makefile` or `setup.sh`.  
+- 🧼 Minimal and clean `.zshrc` configuration.  
 
-## Managed Dotfiles
+## Managed Files
 
-- `.gitconfig`
-- `.vimrc`
-- `.zshrc`
-- `.zshrc.local`
+### Dotfiles (`$HOME`)
+
+- `.gitconfig`  
+- `.vimrc`  
+- `.zshrc`  
+- `.zshrc.local`  
+
+### Config directories (`$HOME/.config`)
+
+- `btop`  
+- `ghostty`  
+- `karabiner`  
+- `nvim`  
+- `starship`  
+- `tmux`  
 
 ## Installation
 
-You can install the dotfiles either using the **Makefile** or the **setup.sh** script.
+You can install the dotfiles/configs using either the **Makefile** or the **setup.sh** script.
+
+---
 
 ### Using Makefile
 
-Install all dotfiles:
+Install everything:
 
 ```bash
 make install
 ```
 
-Install a specific dotfile (example for `.zshrc`):
+Install a specific file (example: `.zshrc`):
 
 ```bash
 make .zshrc
 ```
 
-Remove all dotfiles:
+Install a config directory (example: `nvim`):
+
+```bash
+make nvim
+```
+
+Remove everything:
 
 ```bash
 make clean
 ```
 
-Remove a specific dotfile (example for `.zshrc`):
+Remove a specific file/dir (example: `ghostty`):
 
 ```bash
-make clean-.zshrc
+make clean-ghostty
 ```
+
+---
 
 ### Using setup.sh
 
-Install all dotfiles:
+Install everything:
 
 ```bash
 ./setup.sh install
 ```
 
-Install a specific dotfile:
+Install a specific file or config dir (example: `.zshrc` or `nvim`):
 
 ```bash
 ./setup.sh install .zshrc
+./setup.sh install nvim
 ```
 
-Remove all dotfiles:
+Remove everything:
 
 ```bash
 ./setup.sh clean
 ```
 
-Remove a specific dotfile:
+Remove a specific file/dir:
 
 ```bash
-./setup.sh clean .zshrc
+./setup.sh clean tmux
 ```
+
+---
 
 ## Behavior
 
-- When installing, if an existing file or symlink is found, it is automatically backed up as `<filename>.bak`.
-- Symlinks are created from your home directory (`$HOME`) to the corresponding files inside the `dotfiles` repository.
+- Existing files/directories are automatically backed up with a `.bak` suffix before symlinks are created.  
+- Symlinks are created into your home directory (`$HOME`) or config directory (`$HOME/.config`) depending on the type.  
 
 ## Requirements
 
-- GNU `make`
-- `bash` or compatible shell
+- GNU `make`  
+- `bash` or compatible shell  
 
 ## Notes
 
-- `.zshrc` sources a local configuration file `.zshrc.local` if it exists, allowing machine-specific customizations without modifying the main `.zshrc`.
-- The default prompt is a simple, minimal one showing `user@host:cwd$`.
+- `.zshrc` sources `.zshrc.local` if it exists, allowing machine-specific customizations.  
+- The default prompt is minimal: `user@host:cwd$`.  
 
 ## License
 
 This project is for personal use.  
-Feel free to fork and adapt it to your own needs!
+Feel free to fork and adapt it to your own needs!  
+

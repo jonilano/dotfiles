@@ -23,6 +23,7 @@
 
 SESSION_NAME="$1"
 KARABINER_DIR="$HOME/dotfiles/karabiner"
+DOTFILES_DIR="$HOME/dotfiles"
 
 # Check if the session is "karabiner"
 # Karabiner Session
@@ -40,6 +41,15 @@ if [ "$SESSION_NAME" = "karabiner" ]; then
 
   # Launch Ghostty with tmux attach
   open -na Ghostty --args -e "sh" "-c" "tmux attach -t $SESSION_NAME"
+
+# Dotfiles Session
+elif [ "$SESSION_NAME" = "dotfiles" ]; then
+  if ! tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
+    tmux new-session -d -s "$SESSION_NAME" -c "$DOTFILES_DIR"
+  fi
+  open -na Ghostty --args -e "sh" "-c" "tmux attach -t $SESSION_NAME"
+
+# Generic Session
 else
   # Attach to session or create if it doesn't exist
   open -na Ghostty --args -e "sh" "-c" "tmux attach -t $SESSION_NAME || tmux new -s $SESSION_NAME"

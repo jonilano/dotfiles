@@ -112,7 +112,7 @@
                   },
                   {
                     "type": "variable_if",
-                    "name": "hyper_sublayer_q",
+                    "name": "hyper_sublayer_f",
                     "value": 0
                   },
                   {
@@ -220,7 +220,7 @@
                   },
                   {
                     "type": "variable_if",
-                    "name": "hyper_sublayer_q",
+                    "name": "hyper_sublayer_f",
                     "value": 0
                   },
                   {
@@ -336,7 +336,7 @@
                   },
                   {
                     "type": "variable_if",
-                    "name": "hyper_sublayer_q",
+                    "name": "hyper_sublayer_f",
                     "value": 0
                   },
                   {
@@ -441,7 +441,7 @@
                   },
                   {
                     "type": "variable_if",
-                    "name": "hyper_sublayer_q",
+                    "name": "hyper_sublayer_f",
                     "value": 0
                   },
                   {
@@ -602,7 +602,7 @@
                   },
                   {
                     "type": "variable_if",
-                    "name": "hyper_sublayer_q",
+                    "name": "hyper_sublayer_f",
                     "value": 0
                   },
                   {
@@ -707,7 +707,7 @@
                   },
                   {
                     "type": "variable_if",
-                    "name": "hyper_sublayer_q",
+                    "name": "hyper_sublayer_f",
                     "value": 0
                   },
                   {
@@ -760,13 +760,13 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'Ghostty.app'"
+                    "shell_command": "open -a 'Safari.app'"
                   }
                 ],
-                "description": "Open -a 'Ghostty.app'",
+                "description": "Open -a 'Safari.app'",
                 "type": "basic",
                 "from": {
-                  "key_code": "t",
+                  "key_code": "b",
                   "modifiers": {
                     "optional": [
                       "any"
@@ -784,13 +784,13 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'Safari.app'"
+                    "shell_command": "open -a 'Ghostty.app'"
                   }
                 ],
-                "description": "Open -a 'Safari.app'",
+                "description": "Open -a 'Ghostty.app'",
                 "type": "basic",
                 "from": {
-                  "key_code": "b",
+                  "key_code": "t",
                   "modifiers": {
                     "optional": [
                       "any"
@@ -952,13 +952,13 @@
             ]
           },
           {
-            "description": "Hyper Key sublayer \"q\"",
+            "description": "Hyper Key sublayer \"f\"",
             "manipulators": [
               {
-                "description": "Toggle Hyper sublayer q",
+                "description": "Toggle Hyper sublayer f",
                 "type": "basic",
                 "from": {
-                  "key_code": "q",
+                  "key_code": "f",
                   "modifiers": {
                     "optional": [
                       "any"
@@ -968,7 +968,7 @@
                 "to_after_key_up": [
                   {
                     "set_variable": {
-                      "name": "hyper_sublayer_q",
+                      "name": "hyper_sublayer_f",
                       "value": 0
                     }
                   }
@@ -976,7 +976,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "hyper_sublayer_q",
+                      "name": "hyper_sublayer_f",
                       "value": 1
                     }
                   }
@@ -1062,10 +1062,10 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'Ghostty.app'"
+                    "shell_command": "open -a 'TradingView.app'"
                   }
                 ],
-                "description": "Open -a 'Ghostty.app'",
+                "description": "Open -a 'TradingView.app'",
                 "type": "basic",
                 "from": {
                   "key_code": "j",
@@ -1078,7 +1078,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "hyper_sublayer_q",
+                    "name": "hyper_sublayer_f",
                     "value": 1
                   }
                 ]
@@ -1086,10 +1086,10 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'Safari.app'"
+                    "shell_command": "open -a 'Binance.app'"
                   }
                 ],
-                "description": "Open -a 'Safari.app'",
+                "description": "Open -a 'Binance.app'",
                 "type": "basic",
                 "from": {
                   "key_code": "k",
@@ -1102,151 +1102,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "hyper_sublayer_q",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open -a 'ChatGPT.app'"
-                  }
-                ],
-                "description": "Open -a 'ChatGPT.app'",
-                "type": "basic",
-                "from": {
-                  "key_code": "spacebar",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_q",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open -a 'Messages.app'"
-                  }
-                ],
-                "description": "Open -a 'Messages.app'",
-                "type": "basic",
-                "from": {
-                  "key_code": "i",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_q",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open -a 'Passwords.app'"
-                  }
-                ],
-                "description": "Open -a 'Passwords.app'",
-                "type": "basic",
-                "from": {
-                  "key_code": "p",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_q",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open -a 'Notes.app'"
-                  }
-                ],
-                "description": "Open -a 'Notes.app'",
-                "type": "basic",
-                "from": {
-                  "key_code": "n",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_q",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open -a 'Mail.app'"
-                  }
-                ],
-                "description": "Open -a 'Mail.app'",
-                "type": "basic",
-                "from": {
-                  "key_code": "m",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_q",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open -a 'Finder.app'"
-                  }
-                ],
-                "description": "Open -a 'Finder.app'",
-                "type": "basic",
-                "from": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_q",
+                    "name": "hyper_sublayer_f",
                     "value": 1
                   }
                 ]
@@ -1316,7 +1172,7 @@
                   },
                   {
                     "type": "variable_if",
-                    "name": "hyper_sublayer_q",
+                    "name": "hyper_sublayer_f",
                     "value": 0
                   },
                   {
@@ -2047,7 +1903,7 @@
                   },
                   {
                     "type": "variable_if",
-                    "name": "hyper_sublayer_q",
+                    "name": "hyper_sublayer_f",
                     "value": 0
                   },
                   {
@@ -2229,7 +2085,7 @@
                   },
                   {
                     "type": "variable_if",
-                    "name": "hyper_sublayer_q",
+                    "name": "hyper_sublayer_f",
                     "value": 0
                   },
                   {
@@ -2646,7 +2502,7 @@
                   },
                   {
                     "type": "variable_if",
-                    "name": "hyper_sublayer_q",
+                    "name": "hyper_sublayer_f",
                     "value": 0
                   },
                   {
@@ -2946,7 +2802,7 @@
                   },
                   {
                     "type": "variable_if",
-                    "name": "hyper_sublayer_q",
+                    "name": "hyper_sublayer_f",
                     "value": 0
                   },
                   {
@@ -3214,7 +3070,7 @@
                   },
                   {
                     "type": "variable_if",
-                    "name": "hyper_sublayer_q",
+                    "name": "hyper_sublayer_f",
                     "value": 0
                   },
                   {
@@ -3540,7 +3396,7 @@
                   },
                   {
                     "type": "variable_if",
-                    "name": "hyper_sublayer_q",
+                    "name": "hyper_sublayer_f",
                     "value": 0
                   },
                   {
@@ -3794,7 +3650,7 @@
                   },
                   {
                     "type": "variable_if",
-                    "name": "hyper_sublayer_q",
+                    "name": "hyper_sublayer_f",
                     "value": 0
                   },
                   {

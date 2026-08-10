@@ -140,8 +140,8 @@ const rules: KarabinerRules[] = [
 
     // Open App
     o: {
-      t: app("Ghostty"),
       b: app("Safari"),
+      t: app("Ghostty"),
       spacebar: app("ChatGPT"),
 
       i: app("Messages"),
@@ -153,19 +153,10 @@ const rules: KarabinerRules[] = [
       f: app("Finder"),
     },
 
-    // quick access
-    q: {
-      j: app("Ghostty"),
-      k: app("Safari"),
-      spacebar: app("ChatGPT"),
-
-      i: app("Messages"),
-      p: app("Passwords"),
-
-      n: app("Notes"),
-      m: app("Mail"),
-
-      l: app("Finder"),
+    // favorites
+    f: {
+      j: app("TradingView"),
+      k: app("Binance"),
     },
 
     // Window Management

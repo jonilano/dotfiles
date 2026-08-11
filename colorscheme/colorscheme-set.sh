@@ -39,15 +39,17 @@ if ! cmp -s "$COLORSCHEME_FILE" "$ACTIVE_FILE"; then
 
 # Set the wallpaper
   wallpaper=$(grep -E '^\s*wallpaper\s*=' "$COLORSCHEME_FILE" | sed -E 's/.*"\s*([^"]+)\s*".*/\1/')
-  if [ -n "$wallpaper" ]; then
-    wallpaper_path="$WALLPAPER_DIR/$wallpaper"
-    osascript -e '
-    tell application "System Events"
-        repeat with d in desktops
-            set picture of d to "'"$wallpaper_path"'"
-        end repeat
-    end tell'
+  if [ -z "$wallpaper" ]; then
+    wallpaper="default.jpg"
   fi
+  wallpaper_path="$WALLPAPER_DIR/$wallpaper"
+  osascript -e '
+  tell application "System Events"
+      repeat with d in desktops
+          set picture of d to "'"$wallpaper_path"'"
+      end repeat
+  end tell'
 else
   echo "Colorscheme '$profile' is already active."
 fi
+
